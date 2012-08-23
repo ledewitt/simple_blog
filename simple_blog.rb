@@ -5,6 +5,23 @@ get('/') {
   erb :home
 }
 
-get('/compose') {
-  erb :compose
+get('/add_article') {
+  erb :add_article
+}
+
+post('/add_article') {
+  erb :article
+}
+
+get('/admin') {
+  erb :admin
+}
+
+post('/admin') {
+  erb :admin # if password wrong
+  erb :add_article # if password correct
+}
+
+get('/article') {
+  erb :article
 }
