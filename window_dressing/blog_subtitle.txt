@@ -1,1 +1,0 @@
-The adventures of an academically trained C++ computer programmer, with large enterprise waterfall methodology experience, as he retools to Ruby and Agile.

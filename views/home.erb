@@ -7,24 +7,15 @@
   Links go here
 </nav>
 
-<articles>
-  Need to display each article that is passed to this section.
-</articles>
-
-<articles>
-  Need to display another article that is passed to this section.
-</articles>
+<% articles.each do |article| %>
+  <article>
+    <h2> <%= article[0] %> </h2>
+    <p> <%= article[1] %> </p>
+  </article>
+<% end %>
 
 <footer>
   <p><small>
-    Copyright 2012 DeWitt Software, LLC
+    <%= copyright %>
   </small><p>
 </footer>
-
-<!-- TODO:  This will be a loop over each article that has been collected -->
-<!-- <% # article.each do |art| %> -->
-  <articles>
-    Need to display each article that is passed to this section.
-  </articles>
-<!-- <% # end %> -->
-
