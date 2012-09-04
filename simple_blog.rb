@@ -39,6 +39,9 @@ post('/admin') {
   erb :add_article # if password correct
 }
 
-get('/article') {
-  erb :article
+get('/article/:article_title') {
+  erb :article, locals: { title:          TITLE,
+                          subtitle:       SUBTITLE,
+                          copyright:      COPYRIGHT,
+                          article_title:  params[:article_title] }
 }
