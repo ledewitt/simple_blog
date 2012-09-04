@@ -1,6 +1,7 @@
 require "sinatra"
 require "sinatra/reloader" if development?
 require_relative "lib/simple_blog/article_list"
+require_relative "lib/simple_blog/article"
 
 # TODO: Should change the following variables into a hash reading it out of
 # a single file of environment variables rather then a folder.

@@ -9,8 +9,9 @@
 
 <% articles.each do |article| %>
   <article>
-    <h2> <%= article[0] %> </h2>
-    <p> <%= article[1] %> </p>
+    <!-- Make the article title a hyperlink to the article page -->
+    <h2> <%= article.title %> </h2>
+    <p> <%= article.body %> </p>
   </article>
 <% end %>
 
