@@ -11,6 +11,11 @@
   <h2>
     <%= article_title %>
   </h2>
+  <% articles.each do |article|
+    if article.title == article_title %>
+      <p> <%= article.body %> </p>
+    <% end %>
+  <% end %>
 </article>
 
 <footer>

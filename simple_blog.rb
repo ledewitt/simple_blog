@@ -43,5 +43,6 @@ get('/article/:article_title') {
   erb :article, locals: { title:          TITLE,
                           subtitle:       SUBTITLE,
                           copyright:      COPYRIGHT,
+                          articles:       ARTICLES,
                           article_title:  params[:article_title] }
 }
