@@ -24,7 +24,9 @@ get('/') {
 }
 
 get('/add_article') {
-  erb :add_article
+  erb :add_article, locals: { title:     TITLE,
+                              subtitle:  SUBTITLE,
+                              copyright: COPYRIGHT }
 }
 
 post('/add_article') {
