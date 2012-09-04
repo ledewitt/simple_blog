@@ -30,7 +30,17 @@ get('/add_article') {
 }
 
 post('/add_article') {
-  erb :article
+  # With the params coming from the form write that data to the article folder
+  
+  File.open("articles/#{params[:title]}.txt", 'w') {|f|
+                                  f.write(params[:body])}
+                                  
+  article = Simple_Blog::Article.new(params[:title])
+  
+  erb :article, locals: { title:     TITLE,
+                          subtitle:  SUBTITLE,
+                          copyright: COPYRIGHT,
+                          article:   article }
 }
 
 get('/admin') {

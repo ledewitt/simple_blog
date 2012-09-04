@@ -4,8 +4,12 @@
   Blog composition page.  Go forth and be imaginative.  
 </h1>
 
-<textarea>
-  
-</textarea>
+<form action="/add_article" method="post">
+  <div><label for="title">Title:</label><br />
+  <input type="text" name="title" id="title" /></div>
+  <textarea name="body" rows="20" cols="80" wraps="virtual">
+  </textarea>
+  <div><input type="submit" value="Post" /></div>
+</form>
 
 </article>
