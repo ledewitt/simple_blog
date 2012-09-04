@@ -6,9 +6,8 @@ module Simple_Blog
 
       Dir.foreach ("./articles/") do |file|
         if file.include?(".txt")
-          article = Simple_Blog::Article.new( 
-                             "#{File.basename(file, ".txt")}",
-                             File.read("./articles/#{file}") )
+          article = Simple_Blog::Article.new(
+                        "#{File.basename(file, ".txt")}")
           @article_list << article
         end
 

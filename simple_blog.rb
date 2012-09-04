@@ -15,7 +15,7 @@ get('/') {
   # Can you figure out how to link that code?  Would be cool to just call it
   # form the lib folder and have it fill some kind of container.
   
-  ARTICLES  = Simple_Blog::ArticleList.new
+  ARTICLES = Simple_Blog::ArticleList.new
   
   erb :home, locals: { title:     TITLE,
                        subtitle:  SUBTITLE,
@@ -44,9 +44,10 @@ get('/article/:article_title') {
   
   # Create the article object using title and pass it down
   
-  erb :article, locals: { title:          TITLE,
-                          subtitle:       SUBTITLE,
-                          copyright:      COPYRIGHT,
-                          articles:       ARTICLES,
-                          article_title:  params[:article_title] }
+  ARTICLE = Simple_Blog::Article.new(params[:article_title])
+  
+  erb :article, locals: { title:     TITLE,
+                          subtitle:  SUBTITLE,
+                          copyright: COPYRIGHT,
+                          article:   ARTICLE }
 }
