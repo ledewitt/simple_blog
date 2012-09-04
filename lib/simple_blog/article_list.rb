@@ -4,14 +4,11 @@ module Simple_Blog
     def initialize
       @article_list = Array.new
 
-      Dir.foreach ("./articles/") do |file|
-        if file.include?(".txt")
-          article = Simple_Blog::Article.new(
+      Dir.glob("articles/*.txt") do |file|
+        article = Simple_Blog::Article.new(
                         "#{File.basename(file, ".txt")}")
-          @article_list << article
-        end
-
-      end      
+        @article_list << article
+      end
     end
 
     def each(&block)

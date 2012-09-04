@@ -6,9 +6,9 @@ require_relative "lib/simple_blog/article"
 # TODO: Should change the following variables into a hash reading it out of
 # a single file of environment variables rather then a folder.
 
-TITLE     = File.read("./env_vars/blog_title.txt")
-SUBTITLE  = File.read("./env_vars/blog_subtitle.txt")
-COPYRIGHT = File.read("./env_vars/copyright.txt")
+TITLE     = File.read("env_vars/blog_title.txt")
+SUBTITLE  = File.read("env_vars/blog_subtitle.txt")
+COPYRIGHT = File.read("env_vars/copyright.txt")
 
 get('/') {
   # Get each of the articles as in the snippet of code in reading_article.rb
