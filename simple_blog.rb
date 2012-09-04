@@ -10,12 +10,13 @@ TITLE     = File.read("./env_vars/blog_title.txt")
 SUBTITLE  = File.read("./env_vars/blog_subtitle.txt")
 COPYRIGHT = File.read("./env_vars/copyright.txt")
 
-ARTICLES  = Simple_Blog::ArticleList.new
-
 get('/') {
   # Get each of the articles as in the snippet of code in reading_article.rb
   # Can you figure out how to link that code?  Would be cool to just call it
   # form the lib folder and have it fill some kind of container.
+  
+  ARTICLES  = Simple_Blog::ArticleList.new
+  
   erb :home, locals: { title:     TITLE,
                        subtitle:  SUBTITLE,
                        copyright: COPYRIGHT,
@@ -40,6 +41,9 @@ post('/admin') {
 }
 
 get('/article/:article_title') {
+  
+  # Create the article object using title and pass it down
+  
   erb :article, locals: { title:          TITLE,
                           subtitle:       SUBTITLE,
                           copyright:      COPYRIGHT,

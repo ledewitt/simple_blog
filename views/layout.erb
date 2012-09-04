@@ -12,7 +12,27 @@
     footer {clear: both}
     </style>
   </head>
+  
   <body>
+    
+    <header>
+      <h1><%= title %></h1>
+      <h3><i><%= subtitle %></i> </h3>
+    </header>
+
+    <nav>
+      Links go here
+    </nav>
+    
     <%= yield %>
+  
+    <footer>
+      <p><small>
+        <%= copyright %>
+      </small><p>
+    </footer>
+  
   </body>
+  
+  
 </html>
