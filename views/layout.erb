@@ -21,7 +21,10 @@
     </header>
 
     <nav>
-      Links go here
+      <% links.each do |link| %>
+          <p> <%= link %> </p>
+        </article>
+      <% end %>
     </nav>
     
     <%= yield %>
