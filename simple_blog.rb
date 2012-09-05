@@ -1,3 +1,4 @@
+require "yaml"
 require "sinatra"
 require "sinatra/reloader" if development?
 require_relative "lib/simple_blog/article_list"
@@ -7,10 +8,9 @@ require_relative "lib/simple_blog/links"
 # TODO: Should change the following variables into a hash reading it out of
 # a single file of environment variables rather then a folder.
 
-TITLE     = File.read("env_vars/blog_title.txt")
-SUBTITLE  = File.read("env_vars/blog_subtitle.txt")
-COPYRIGHT = File.read("env_vars/copyright.txt")
 LINKS     = Simple_Blog::Links.new
+
+CONFIG = YAML.load(File.read("blog_config.yml"))
 
 get('/') {
   # Get each of the articles as in the snippet of code in reading_article.rb
@@ -19,18 +19,12 @@ get('/') {
   
   articles = Simple_Blog::ArticleList.new
   
-  erb :home, locals: { title:     TITLE,
-                       subtitle:  SUBTITLE,
-                       copyright: COPYRIGHT,
-                       links:     LINKS,
-                       articles:  articles }
+  erb :home, locals: { links:    LINKS,
+                       articles: articles }
 }
 
 get('/add_article') {
-  erb :add_article, locals: { title:     TITLE,
-                              subtitle:  SUBTITLE,
-                              links:     LINKS,
-                              copyright: COPYRIGHT }
+  erb :add_article, locals: { links: LINKS }
 }
 
 post('/add_article') {
@@ -41,10 +35,7 @@ post('/add_article') {
                                   
   article = Simple_Blog::Article.new(params[:title])
   
-  erb :article, locals: { title:     TITLE,
-                          subtitle:  SUBTITLE,
-                          copyright: COPYRIGHT,
-                          links:     LINKS,
+  erb :article, locals: { links:     LINKS,
                           article:   article }
 }
 
@@ -63,9 +54,6 @@ get('/article/:article_title') {
   
   article = Simple_Blog::Article.new(params[:article_title])
   
-  erb :article, locals: { title:     TITLE,
-                          subtitle:  SUBTITLE,
-                          copyright: COPYRIGHT,
-                          links:     LINKS,
+  erb :article, locals: { links:     LINKS,
                           article:   article }
 }
