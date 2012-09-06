@@ -20,18 +20,17 @@ get('/') {
 }
 
 get('/add_article') {
-  erb :add_article
+  erb :admin
 }
 
 post('/add_article') {
-  # With the params coming from the form write that data to the article folder
   
   File.open("articles/#{params[:title]}.txt", 'w') {|f|
                                   f.write(params[:body])}
                                   
   article = Simple_Blog::Article.new(params[:title])
   
-  erb :article, locals: { article:   article }
+  erb :article, locals: { article: article }
 }
 
 get('/admin') {
@@ -39,8 +38,13 @@ get('/admin') {
 }
 
 post('/admin') {
-  erb :admin # if password wrong
-  erb :add_article # if password correct
+  
+  if params[:password] == "chicken"
+    erb :add_article
+  else
+    erb :admin
+  end
+  
 }
 
 get('/article/:article_title') {
