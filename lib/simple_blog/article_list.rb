@@ -10,10 +10,7 @@ module Simple_Blog
         @article_list << article
       end
       
-      #TODO: Probaby a way to sort by and reverse in one command.
-      
-      @article_list.sort_by! { |d| [d.time_created, d] }
-      @article_list.reverse!
+      @article_list.sort_by! { |a| -a.time_created.to_i }
     end
 
     def each(&block)
