@@ -21,8 +21,8 @@
     </header>
 
     <nav>
-      <% links.each do |link| %>
-        <A HREF = <%= link[1] %> > <%= link[0] %> </A> <br>
+      <% CONFIG[:links].each do |name, address| %>
+        <A HREF = <%= address %> > <%= name %> </A> <br>
       <% end %>
     </nav>
     
