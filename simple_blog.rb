@@ -20,7 +20,7 @@ get('/') {
 }
 
 get('/add_article') {
-  erb :admin
+  erb :add_article
 }
 
 post('/add_article') {
@@ -40,7 +40,7 @@ get('/admin') {
 post('/admin') {
   
   if params[:password] == "chicken"
-    erb :add_article
+    redirect '/add_article'
   else
     erb :admin
   end

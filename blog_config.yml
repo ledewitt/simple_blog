@@ -2,6 +2,7 @@
 :title: "\"You must unlearn what you have learned.\" - a Blog"
 :subtitle: The adventures of an academically trained C++ programmer, with large enterprise waterfall methodology experience, as he retools to Ruby and Agile.
 :copyright: Copyright 2012 DeWitt Software LLC
+:articles_per_page: 2
 :links:
   Google: http://www.google.com/
-  Add Article: /add_article
+  Administration: /admin
