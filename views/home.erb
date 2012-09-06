@@ -1,4 +1,8 @@
-<% articles.each do |article| %>
+<h2> I am the page <%= page %>, I am the number of articles allowed
+     <%= CONFIG[:articles_per_page]%>
+</h2>
+
+<% articles.pagination(page, CONFIG[:articles_per_page]).each do |article| %>
   <article>
     <h2>
       <A HREF ="article/<%= article.title %>"> <%= article.title %> </A>

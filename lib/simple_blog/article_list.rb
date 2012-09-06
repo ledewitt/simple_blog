@@ -16,6 +16,11 @@ module Simple_Blog
     def each(&block)
       @article_list.each(&block)
     end
+    
+    
+    def pagination(page, numb_articles)
+      @article_list[(page-1)*numb_articles..(page*numb_articles)-1]
+    end
 
   end
 end
