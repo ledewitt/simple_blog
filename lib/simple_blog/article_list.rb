@@ -18,7 +18,7 @@ module Simple_Blog
     end
     
     def number_of_pages(articles_per_page)
-      (@article_list.count.to_f/articles_per_page).ceil
+      (@article_list.size.to_f/articles_per_page).ceil
     end
     
     def pagination(page, numb_articles)

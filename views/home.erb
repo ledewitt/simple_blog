@@ -5,7 +5,7 @@
 
 <h2>
   <% articles.number_of_pages(CONFIG[:articles_per_page]).times do |i| %>
-    <A HREF="/<%= i+1 %>"> <%= i+1 %> </A>
+    <A HREF="/?page=<%= i+1 %>"> <%= i+1 %> </A>
   <% end %>
 </h2>
 

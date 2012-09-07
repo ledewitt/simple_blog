@@ -6,15 +6,11 @@ require_relative "lib/simple_blog/article"
 
 CONFIG = YAML.load(File.read("blog_config.yml"))
 
-get('/') {
-  redirect '/1'
-}
-
-get('/:page') {  
+get('/') {  
   articles = Simple_Blog::ArticleList.new
   
   erb :home, locals: { articles: articles,
-                       page: params[:page].to_i }
+                       page:     (params[:page] || 1).to_i }
 }
 
 get('/add_article') {
