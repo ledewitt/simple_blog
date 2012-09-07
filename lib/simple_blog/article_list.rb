@@ -17,6 +17,9 @@ module Simple_Blog
       @article_list.each(&block)
     end
     
+    def number_of_pages(articles_per_page)
+      (@article_list.count.to_f/articles_per_page).ceil
+    end
     
     def pagination(page, numb_articles)
       @article_list[(page-1)*numb_articles..(page*numb_articles)-1]
